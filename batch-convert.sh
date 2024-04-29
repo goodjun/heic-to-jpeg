@@ -6,6 +6,7 @@ find ./ -name '*.heic' -or -name '*.HEIC'| while read i; do
         echo "$i -> ${i%.*}.jpg"
         /tifig/build/tifig -v -p "$i" "${i%.*}".jpg
         touch -r "$i" "${i%.*}".jpg
+        rm -f "$i" "${i%.*}".jpg
     else
         echo "${i%.*}.jpg already exists"
     fi
